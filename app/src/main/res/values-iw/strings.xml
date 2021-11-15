@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="toggleBtnRegular">לחץ למעבר למחשבון רגיל</string>
+    <string name="toggleBtnScientific">לחץ למעבר למחשבון מדעי</string>
+</resources>
