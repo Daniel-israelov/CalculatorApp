@@ -2,15 +2,19 @@ package com.example.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
 
         Button equal_btn = findViewById(R.id.equal);
         Button clear_btn = findViewById(R.id.clear);
+
+        Button toSciBtn = findViewById(R.id.to_sci_btn);
+
 //-------------------------------------------------------------------
         NumberBtnListener btnListener = new NumberBtnListener();
         btn_0.setOnClickListener(btnListener);
@@ -75,12 +82,24 @@ public class MainActivity extends AppCompatActivity {
         btn_tan.setOnClickListener(trigoBtnListener);
         btn_sqrt.setOnClickListener(trigoBtnListener);
 
+        ModeBtnListener modeBtnListener = new ModeBtnListener();
+        toSciBtn.setOnClickListener(modeBtnListener);
+
         clear_btn.setOnClickListener(view -> resultTV.setText(""));
 
         equal_btn.setOnClickListener(view -> {
             if(lastAction == null) return;
             evaluate();
         });
+
+    }
+
+    private class ModeBtnListener implements View.OnClickListener{
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(MainActivity.this, ScientificActivity.class);
+            startActivity(intent);
+        }
     }
 
     private void evaluate(){

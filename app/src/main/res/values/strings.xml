@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Calculator</string>
+    <string name="toggleBtnRegular">Tap to switch to regular mode</string>
+    <string name="toggleBtnScientific">Tap to switch to scientific mode</string>
 </resources>
